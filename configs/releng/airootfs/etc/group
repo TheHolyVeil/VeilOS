@@ -1,0 +1,9 @@
+root:x:0:
+wheel:x:998:veil
+video:x:986:veil
+audio:x:995:veil
+storage:x:988:veil
+optical:x:990:veil
+input:x:989:veil
+seat:x:987:veil
+veil:x:1000:

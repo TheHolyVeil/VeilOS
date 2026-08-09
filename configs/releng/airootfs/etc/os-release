@@ -1,0 +1,11 @@
+NAME="VeilOS"
+PRETTY_NAME="VeilOS"
+ID=veilos
+ID_LIKE=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;255;140;0"
+HOME_URL="https://github.com/TheHolyVeil/veil"
+DOCUMENTATION_URL="https://github.com/TheHolyVeil/veil"
+SUPPORT_URL="https://github.com/TheHolyVeil/veil"
+BUG_REPORT_URL="https://github.com/TheHolyVeil/veil"
+LOGO=veilos

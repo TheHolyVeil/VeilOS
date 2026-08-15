@@ -92,6 +92,8 @@ fastfetch
 # System utilities
 systemd-resolvconf
 sudo
+yad
+reflector
 doas
 man-db
 man-pages

@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+# veilinit-splash — VeilOS boot splash
+# Displays VeilOS branding, boot steps, and generates veilos-logo.txt for fastfetch
+
+# Reset terminal
+printf '\033[2J\033[H\033[?25l'
+
+# Color definitions (orange #FF8C00 = RGB(255,140,0) in 8-bit)
+ORANGE='\033[38;5;214m'        # 256-color orange
+ORANGE_RGB='\033[38;2;255;140;0m'  # Truecolor orange
+BOLD='\033[1m'
+DIM='\033[2m'
+RESET='\033[0m'
+
+# VeilOS ASCII art (rings logo simplified for terminal)
+display_banner() {
+    echo -e "${ORANGE}${BOLD}"
+    echo '    ╭─────────────────────────────────╮'
+    echo '    │                                 │'
+    echo '    │      V E I L   O S             │'
+    echo '    │                                 │'
+    echo '    │   Arch-based Wayland Distro     │'
+    echo '    │                                 │'
+    echo '    ╰─────────────────────────────────╯'
+    echo -e "${RESET}"
+}
+
+# Generate veilos-logo.txt for fastfetch (if it doesn't exist)
+create_logo() {
+    local logo_path="/etc/veilos-logo.txt"
+    
+    # Only create if it doesn't exist
+    if [[ ! -f "$logo_path" ]]; then
+        cat > "$logo_path" << 'EOF'
+                    
+  ╭────────────────────╮
+  │   V E I L  O S     │
+  │   Arch Wayland     │
+  ╰────────────────────╯
+                    
+EOF
+    fi
+}
+
+# Boot steps with timing
+boot_steps() {
+    local steps=(
+        "Mounting filesystems"
+        "Starting udev"
+        "Activating swap"
+        "Bringing up network"
+        "Starting Veil services"
+        "Launching session"
+    )
+    
+    echo
+    for step in "${steps[@]}"; do
+        printf "  ${ORANGE}»${RESET} %-40s" "$step..."
+        sleep 0.12
+        echo -e "${ORANGE}ok${RESET}"
+    done
+    echo
+}
+
+# Main execution
+main() {
+    display_banner
+    create_logo
+    boot_steps
+    
+    # Show cursor again
+    printf '\033[?25h'
+}
+
+main "$@"

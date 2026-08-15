@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Install VeilOS
+GenericName=System Installer
+Comment=Install VeilOS to this machine
+Exec=sudo /usr/local/bin/veilos-installer
+Icon=veilos-installer
+Terminal=false
+Categories=System;
+Keywords=install;veilos;arch;linux;
+NoDisplay=false
+StartupNotify=true

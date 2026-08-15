@@ -26,6 +26,7 @@ syslinux
 memtest86+
 memtest86+-efi
 edk2-shell
+limine
 
 # Filesystem & storage
 btrfs-progs
@@ -47,6 +48,8 @@ iwd
 plasma-meta
 sddm
 sddm-kcm
+gptfdisk
+xfsprogs
 
 # Display & graphics (Veil/VeilLogin deps)
 libxcb
@@ -133,3 +136,4 @@ pambase
 # Web browser & Text editors
 firefox
 kate
+dolphin

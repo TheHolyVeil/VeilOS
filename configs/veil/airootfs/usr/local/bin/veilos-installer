@@ -313,8 +313,12 @@ check_requirements() {
       --text="<b>Low memory (${ram_gb}GB)</b>\n\n4GB+ recommended."
   fi
 
-  local disk_gb=$(( $(df / | awk 'END{print $4}') / 1024 / 1024 ))
-  [[ $disk_gb -ge 20 ]] || error "Need 20GB free on live system, have ${disk_gb}GB"
+  # Find the size of the largest physical disk available (in bytes)
+  local max_disk_bytes
+  max_disk_bytes=$(lsblk -d -n -b -o SIZE,TYPE,NAME -e7 2>/dev/null | awk '$2=="disk" && $3 !~ /^(zram|ram|fd)/ {print $1}' | sort -n | tail -n 1)
+
+  local max_disk_gb=$(( ${max_disk_bytes:-0} / 1024 / 1024 / 1024 ))
+  [[ $max_disk_gb -ge 20 ]] || error "No target drive with at least 20GB space found (largest drive: ${max_disk_gb}GB)"
 
   [[ -f "$BACKEND" ]] || error "Backend not found: $BACKEND"
 }

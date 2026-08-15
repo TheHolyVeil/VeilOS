@@ -8,8 +8,7 @@ iso_application="VeilOS — Lightweight Wayland Compositor"
 iso_version="$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y.%m.%d)"
 install_dir="arch"
 buildmodes=('iso')
-bootmodes=('bios.syslinux'
-  'uefi.systemd-boot')
+bootmodes=('bios.syslinux' 'uefi.grub')
 pacman_conf="pacman.conf"
 airootfs_image_type="squashfs"
 airootfs_image_tool_options=('-comp' 'zstd' '-Xcompression-level' '3')

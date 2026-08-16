@@ -18,6 +18,9 @@ experience baked in from install.
 - A Plymouth boot splash and system branding (`os-release`, `fastfetch`,
   `/etc/issue`, `/etc/motd`) so it looks and feels like VeilOS from the
   moment the machine powers on, not stock Arch with extra packages.
+## Downloading
+
+Find the iso at (Downloader)[https://archive.org/details/veilos-2026.08.15-x86_64] and run that or use the torrent. This is the OFFICIAL current iso. Anything else is either outdated or NOT MINE. 
 
 ## Installing
 
